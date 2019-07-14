@@ -123,7 +123,6 @@ cur.Close(context.TODO())
 
 for _, id := range results {
       fmt.Printf("address %+v\n",id)
-
-
 }
 
+}
