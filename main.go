@@ -48,9 +48,9 @@ type StoryLine struct {
 type Title struct {
 //ID primitive.ObjectID  `json:"_id" bson:"_id"`
 
-  TitleId  int
-  TitleName string
-  TitleNameSortable  string
+  TitleId  int `json:"title_id" bson:"title_id"`
+  TitleName string `json:"title_name" bson:"title_name"`
+  TitleNameSortable  string `json:"tile_name_sortable" bson:"title_name_sortable"`
 
 /*
   Awards  []Award
