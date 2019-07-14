@@ -9,7 +9,6 @@ import(
     "go.mongodb.org/mongo-driver/mongo/options"
 )
 
-
 type otherName struct {
     TitleNameLanguage string
     TitleNameType string
@@ -50,7 +49,6 @@ type title struct {
   OtherNames []otherName
   Participants []participant
   ReleaseYear  string
-
   }
 
 func main() {
@@ -96,7 +94,7 @@ for cur.Next(context.TODO()) {
     if err != nil {
         log.Fatal(err)
     }
-fmt.Println(elm.Id)
+fmt.Println(el,elem.Id)
 }
 }
  
