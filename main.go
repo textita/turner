@@ -110,7 +110,7 @@ for cur.Next(context.TODO()) {
     if err != nil {
         log.Fatal(err)
     }
-
+results = append(results, &elem)
     }
 
 if err := cur.Err(); err != nil {
