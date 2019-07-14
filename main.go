@@ -10,31 +10,31 @@ import(
 )
 
 /*
-type otherName struct {
+type OtherName struct {
     TitleNameLanguage string
     TitleNameType string
     TitleNameSortable string 
     TitleName  string
   }
   
-type storyLine struct {
+type StoryLine struct {
     Description string 
     Language  string 
     Type  string
     }
 
-  type participant struct {
+  type Participant struct {
    IsKey bool
    RoleType string
    IsOnScreen bool
    ParticipantType  string
    Name string
    ParticipantId int
-   StoryLines []storyLine
+   StoryLines []StoryLine
    
   }
   
- type award struct {
+ type Award struct {
  AwardWon bool
  AwardYear  string 
  Award  string
@@ -43,16 +43,16 @@ type storyLine struct {
 
 */
 
-type title struct {
+type Title struct {
   Id  string `json:"_id"`
   
 
 
 /*
-  Awards  []award
+  Awards  []Award
   Genres  []string
-  OtherNames []otherName
-  Participants []participant
+  OtherNames []OtherName
+  Participants []Participant
   ReleaseYear  string
 
   TitleId  int
@@ -88,28 +88,42 @@ fmt.Println("Connected to MongoDB!")
 
   collection := client.Database("dev-challenge").Collection("Titles")
   
-  cur, err := collection.Find(context.TODO(), bson.D{{}})
+// Pass these options to the Find method
+findOptions := options.Find()
 
+// Here's an array in which you can store the decoded documents
+var results []*Title
+
+// Passing bson.D{{}} as the filter matches all documents in the collection
+cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
 if err != nil {
     log.Fatal(err)
 }
 
+
 // Finding multiple documents returns a cursor
 // Iterating through the cursor allows us to decode documents one at a tim
 
-count := 0
+    Passing bson.D{{}} as the filter matches all documents in the collection
+cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
+if err != nil {
+    log.Fatal(err)
+}
 
-for cur.Next(context.TODO()) {
-    
-  fmt.Println("*")
-
-    var elem title
+    var elem Title
     err := cur.Decode(&elem)
     if err != nil {
         log.Fatal(err)
     }
-   count++;
-   fmt.Println("Id ",elem.Id," count ",count)
+   results = append(results, &elem)
 }
+
+if err := cur.Err(); err != nil {
+    log.Fatal(err)
 }
+
+// Close the cursor once finished
+cur.Close(context.TODO())
+
+fmt.Printf("Found multiple documents (array of pointers): %+v\n", results)
  
