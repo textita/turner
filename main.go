@@ -122,7 +122,7 @@ cur.Close(context.TODO())
 //fmt.Printf("Found multiple documents (array of pointers): %+v\n", results)
 
 for _, id := range results {
-      fmt.Printf("address %+d\n",id)
+      fmt.Printf("address",id)
 }
 
 }
