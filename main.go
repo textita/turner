@@ -82,7 +82,7 @@ if err != nil {
 
 fmt.Println("Connected to MongoDB!")
 
-  collection := client.Database("dev-challenge").Collection("titles")
+  collection := client.Database("dev-challenge").Collection("Titles")
   
   cur, err := collection.Find(context.TODO(), bson.D{{}})
 
