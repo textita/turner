@@ -1,7 +1,7 @@
 package main
 
 import(
-    "fmt"
+  "fmt"
   "log"
   "context"
     "go.mongodb.org/mongo-driver/bson"
@@ -74,7 +74,6 @@ if err != nil {
     log.Fatal(err)
 }
 
-  
 fmt.Println("Connected to MongoDB!")
 
   collection := client.Database("dev-challenge").Collection("titles")
@@ -88,7 +87,7 @@ if err != nil {
   fmt.Println("hello")
 
 // Finding multiple documents returns a cursor
-// Iterating through the cursor allows us to decode documents one at a time
+// Iterating through the cursor allows us to decode documents one at a tim
 for cur.Next(context.TODO()) {
     
     // create a value into which the single document can be decoded
@@ -97,6 +96,7 @@ for cur.Next(context.TODO()) {
     if err != nil {
         log.Fatal(err)
     }
+fmt.Println(elm.Id)
 }
 }
  
