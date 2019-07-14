@@ -43,7 +43,7 @@ type StoryLine struct {
 
 */
 
-type Title struct {o
+type Title struct {
   
 ID objectid.ObjectID   `json:"id" bson:"_id"`
   
