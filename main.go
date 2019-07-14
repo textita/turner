@@ -9,6 +9,7 @@ import(
     "go.mongodb.org/mongo-driver/mongo/options"
 )
 
+/*
 type otherName struct {
     TitleNameLanguage string
     TitleNameType string
@@ -42,13 +43,17 @@ type storyLine struct {
  AwardCompany  string 
 }
 
+*/
+
 type title struct {
-  Id  string
+  Id  string `json:"_id"
+*/
   Awards  []award
   Genres  []string
   OtherNames []otherName
   Participants []participant
   ReleaseYear  string
+/*
   }
 
 func main() {
