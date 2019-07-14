@@ -30,7 +30,7 @@ type storyLine struct {
    ParticipantType  string
    Name string
    ParticipantId int
-   StoryLines []storyline
+   StoryLines []storyLine
    TitleId  int
    TitleName string
    TitleNameSortable  string
@@ -39,7 +39,6 @@ type storyLine struct {
  type award struct {
  AwardWon bool
  AwardYear  string 
- Participants  []string
  Award  string
  AwardCompany  string 
 }
