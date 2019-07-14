@@ -16,7 +16,7 @@ type OtherName struct {
     TitleNameLanguage string
     TitleNameType string
     TitleNameSortable string 
-    TitleName  string
+  //  TitleName  string
   }
   
 type StoryLine struct {
