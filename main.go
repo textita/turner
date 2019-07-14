@@ -100,7 +100,7 @@ for cur.Next(context.TODO()) {
         log.Fatal(err)
     }
 
-    ,}
+    }
 
 if err := cur.Err(); err != nil {
     log.Fatal(err)
