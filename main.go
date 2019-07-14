@@ -46,9 +46,8 @@ type StoryLine struct {
 */
 
 type Title struct {
-  
 ID primitive.ObjectID  `json:"_id" bson:"_id"`
-  
+
 /*
   Awards  []Award
   Genres  []string
