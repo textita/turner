@@ -96,6 +96,9 @@ if err != nil {
 
 // Finding multiple documents returns a cursor
 // Iterating through the cursor allows us to decode documents one at a tim
+
+count := 0
+
 for cur.Next(context.TODO()) {
     
     // create a value into which the single document can be decoded
@@ -104,7 +107,7 @@ for cur.Next(context.TODO()) {
     if err != nil {
         log.Fatal(err)
     }
-fmt.Println(elem.Id)
+   fmt.Println("Id ",elem.Id," count ",count++)
 }
 }
  
