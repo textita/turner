@@ -94,7 +94,7 @@ for cur.Next(context.TODO()) {
     if err != nil {
         log.Fatal(err)
     }
-fmt.Println(el,elem.Id)
+fmt.Println(elem.Id)
 }
 }
  
