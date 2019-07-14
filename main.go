@@ -36,39 +36,24 @@ fmt.Println("Connected to MongoDB!")
   collection := client.Database("dev-challenge").Collection("titles")
   
   cur, err := collection.Find(context.TODO(), bson.D{{}})
+
 if err != nil {
     log.Fatal(err)
 }
 
- type award struct {
- AwardWon bool
- AwardYear  string 
- Participants  []string
- Award  string
- AwardCompany  string 
-}
-  
-  type title struct {
-  Id  string
-  Awards  []award
-  Genres  []string
-  OtherNames []otherName
-  Participants []participant
-  ReleaseYear  string
-    
-
-  
-
-    
-  }
-  
-  type otherName struct {
+type otherName struct {
     TitleNameLanguage string
     TitleNameType string
     TitleNameSortable string 
     TitleName  string
-    }
+  }
   
+type storyLine struct {
+    Description string 
+    Language  string 
+    Type  string
+    }
+
   type participant struct {
    IsKey bool
    RoleType string
@@ -80,16 +65,36 @@ if err != nil {
    TitleId  int
    TitleName string
    TitleNameSortable  string
-
-
-  
   }
   
-  type storyLine struct {
-    Description string 
-    Language  string 
-    Type  string
-    }
+ type award struct {
+ AwardWon bool
+ AwardYear  string 
+ Participants  []string
+ Award  string
+ AwardCompany  string 
+}
+  
+
+  type title struct {
+  Id  string
+  Awards  []award
+  Genres  []string
+  OtherNames []otherName
+  Participants []participant
+  ReleaseYear  string
+
+  }
+
+
+  func main() {
+
+  fmt.Println("hello")
+
+  }
+
+  
+
 // Finding multiple documents returns a cursor
 // Iterating through the cursor allows us to decode documents one at a time
 for cur.Next(context.TODO()) {
