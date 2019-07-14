@@ -87,7 +87,12 @@ if err != nil {
 fmt.Println("Connected to MongoDB!")
 
   collection := client.Database("dev-challenge").Collection("Titles")
-  // Passing bson.D{{}} as the filter matches all documents in the collection
+  
+// Pass these options to the Find method
+findOptions := options.Find()
+
+// Here's an array in which you can store the decoded documents
+var results []*Title
 
 cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
 if err != nil {
