@@ -74,8 +74,6 @@ type storyLine struct {
  Award  string
  AwardCompany  string 
 }
-  
-
   type title struct {
   Id  string
   Awards  []award
@@ -86,14 +84,8 @@ type storyLine struct {
 
   }
 
-
   func main() {
-
   fmt.Println("hello")
-
-
-
-  
 
 // Finding multiple documents returns a cursor
 // Iterating through the cursor allows us to decode documents one at a time
@@ -106,6 +98,5 @@ for cur.Next(context.TODO()) {
         log.Fatal(err)
     }
 }
-  
 }
  
