@@ -107,7 +107,8 @@ for cur.Next(context.TODO()) {
     if err != nil {
         log.Fatal(err)
     }
-   fmt.Println("Id ",elem.Id," count ",count++)
+count := count +1
+   fmt.Println("Id ",elem.Id," count ",count)
 }
 }
  
