@@ -88,35 +88,19 @@ fmt.Println("Connected to MongoDB!")
 
   collection := client.Database("dev-challenge").Collection("Titles")
   
-// Pass these options to the Find method
-findOptions := options.Find()
-
-// Here's an array in which you can store the decoded documents
-var results []*Title
-
-// Passing bson.D{{}} as the filter matches all documents in the collection
-cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
-if err != nil {
-    log.Fatal(err)
-}
-
 
 // Finding multiple documents returns a cursor
-// Iterating through the cursor allows us to decode documents one at a tim
-
-    Passing bson.D{{}} as the filter matches all documents in the collection
-cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
-if err != nil {
-    log.Fatal(err)
-}
-
+// Iterating through the cursor allows us to decode documents one at a time
+for cur.Next(context.TODO()) {
+    
+    // create a value into which the single document can be decoded
     var elem Title
     err := cur.Decode(&elem)
     if err != nil {
         log.Fatal(err)
     }
-   results = append(results, &elem)
-}
+
+    ,}
 
 if err := cur.Err(); err != nil {
     log.Fatal(err)
@@ -126,4 +110,5 @@ if err := cur.Err(); err != nil {
 cur.Close(context.TODO())
 
 fmt.Printf("Found multiple documents (array of pointers): %+v\n", results)
- 
+}
+
