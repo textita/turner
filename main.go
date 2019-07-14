@@ -99,7 +99,6 @@ if err != nil {
     log.Fatal(err)
 }
 
-
 // Finding multiple documents returns a cursor
 // Iterating through the cursor allows us to decode documents one at a time
 for cur.Next(context.TODO()) {
@@ -120,6 +119,9 @@ if err := cur.Err(); err != nil {
 // Close the cursor once finished
 cur.Close(context.TODO())
 
-fmt.Printf("Found multiple documents (array of pointers): %+v\n", results)
+//fmt.Printf("Found multiple documents (array of pointers): %+v\n", results)
+
+for _, id := range results {
+      fmt.Println(id)
 }
 
