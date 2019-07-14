@@ -49,8 +49,6 @@ type title struct {
   Id  string `json:"_id"`
 
 /*
-
-
   Awards  []award
   Genres  []string
   OtherNames []otherName
@@ -101,7 +99,6 @@ for cur.Next(context.TODO()) {
     
   fmt.Println("*")
 
- into which the single document can be decoded
     var elem title
     err := cur.Decode(&elem)
     if err != nil {
