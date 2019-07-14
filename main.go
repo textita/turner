@@ -87,7 +87,13 @@ if err != nil {
 fmt.Println("Connected to MongoDB!")
 
   collection := client.Database("dev-challenge").Collection("Titles")
-  
+  // Passing bson.D{{}} as the filter matches all documents in the collection
+
+cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
+if err != nil {
+    log.Fatal(err)
+}
+
 
 // Finding multiple documents returns a cursor
 // Iterating through the cursor allows us to decode documents one at a time
