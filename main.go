@@ -31,9 +31,7 @@ type storyLine struct {
    Name string
    ParticipantId int
    StoryLines []storyLine
-   TitleId  int
-   TitleName string
-   TitleNameSortable  string
+   
   }
   
  type award struct {
@@ -47,6 +45,8 @@ type storyLine struct {
 
 type title struct {
   Id  string `json:"_id"`
+  
+
 
 /*
   Awards  []award
@@ -54,6 +54,10 @@ type title struct {
   OtherNames []otherName
   Participants []participant
   ReleaseYear  string
+
+  TitleId  int
+  TitleName string
+  TitleNameSortable  string
 
 */
   
