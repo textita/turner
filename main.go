@@ -48,7 +48,7 @@ type storyLine struct {
 type title struct {
   Id  string `json:"_id"`
 
-/* 
+/*
 
 
   Awards  []award
@@ -56,8 +56,10 @@ type title struct {
   OtherNames []otherName
   Participants []participant
   ReleaseYear  string
-/*
-  }
+
+*/
+  
+}
 
 func main() {
   
